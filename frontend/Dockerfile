@@ -3,7 +3,8 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && \
 	apt -y install \ 
-		dos2unix
+		dos2unix \
+        curl
 
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
@@ -22,8 +23,6 @@ RUN dos2unix -n /entrypoint.sh /entrypoint-fixed.sh
 RUN chmod a+x /entrypoint-fixed.sh
 
 RUN mkdir /src || true
-
-RUN cd /src && npm install
 
 
 CMD exec /bin/bash -c '/entrypoint-fixed.sh && sleep inf'
