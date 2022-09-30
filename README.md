@@ -1,46 +1,28 @@
-# vue3-auth0-quickstart
+# vue-auth0-quickstart
+Quickstart scaffold template for Vue + Auth0
 
-This template should help get you started developing with Vue 3 in Vite.
+## Summary
+This quickstart template creates a basic Vue application with Auth0 already implemented.  It will also run `npm update` on creation.
 
-## Recommended IDE Setup
+## Requirements
+Make sure that Docker and python are installed on the base.  Docker-compose is created by default, but not required.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Installation
+0.  Clone this repository `git clone https://github.com/amunchet/vue-auth0-quickstart.git`
+1.  `cd vue-auth0-quickstart`
+2.  `./setup.py` (or `python setup.py`)
+3.  Follow the prompts.
+4.  Enjoy.
 
-## Type Support for `.vue` Imports in TS
+## Usage
+This is meant to be used as a starting point for a larger Vue project.  You will likely change the docker configuration, endpoint, and packages.  
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+The two key files are `auth.js` and `authService.js` - they are they keys to intergation with Auth0.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+The file `project_name/entrypoint.sh` is the Docker entrypoint.  Remove `npm update` or the Vue UI server here.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### Typical Next Steps
+Next steps in using the quickstart with the rest of your project could be something like this (assuming you cloned `vue-auth0-quickstart` into your larger project):
+1.  `cat docker-compose.yml >> ../docker-compose.yml`  # You will need to edit docker-compose.yml after this
+2.  `mv frontend ..`
+3.  `cd .. && rm -rf vue-auth0-quickstart`
