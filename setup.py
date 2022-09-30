@@ -139,7 +139,7 @@ if __name__ == "__main__":
     # Remove .git?
     # ----------------------------------------------------------
     clear()
-    remove = user_yes_no_query("Do you wish to remove the .git directory? ")
+    remove = user_yes_no_query("Do you wish to remove the TEMPLATE .git directory and the template directory?  Say no only if you're doing work on the TEMPLATE itself.")
 
     if remove:
         remove_confirm = user_yes_no_query("Are you sure? ")
@@ -148,12 +148,17 @@ if __name__ == "__main__":
     if remove and remove_confirm:
         shutil.rmtree(".git")
 
-    # ----------------------------------------------------------
-    # Final Directory Rename
-    # ----------------------------------------------------------
-    # Last step is to rename the directory to the project project_name
-    print("Final rename...")
-    os.rename("frontend/project_name/", "frontend/" + project_name)
+        # ----------------------------------------------------------
+        # Directory Rename
+        # ----------------------------------------------------------
+        # Last step is to rename the directory to the project project_name
+        print("Moving...")
+        os.rename("frontend/project_name/", "frontend/" + project_name)
+    else:
+
+        # Used for development
+        print("Copying to new template...")
+        shutil.copy("frontend/project_name/", f"frontend/{project_name}")
 
     # ----------------------------------------------------------
     # Start Docker
