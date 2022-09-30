@@ -3,9 +3,12 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && \
 	apt -y install \ 
-		npm \
 		dos2unix
 
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+
+RUN apt install nodejs
 
 RUN npm install -g npm@latest
 
