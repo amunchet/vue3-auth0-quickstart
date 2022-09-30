@@ -122,7 +122,7 @@ if __name__ == "__main__":
     #   - Port for Vue
     #   - Port for Vue UI
     # ----------------------------------------------------------
-    print("Please enter port for Vue: ")
+    print("Please enter port for Vue Preview of App: ")
     vue_port = input().strip()
     print("Please enter port for Vue UI: ")
     vue_port_ui = input().strip()
@@ -158,7 +158,7 @@ if __name__ == "__main__":
 
         # Used for development
         print("Copying to new template...")
-        shutil.copy("frontend/project_name/", f"frontend/{project_name}")
+        shutil.copytree("frontend/project_name", f"frontend/{project_name}")
 
     # ----------------------------------------------------------
     # Start Docker
