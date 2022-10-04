@@ -46,7 +46,7 @@ var version = ref("TODO: Call your backend");
 onMounted(async () => {
   const accessToken = await getAccessTokenSilently();
 
-  Helper.apiCall("", "", user.email, accessToken).then(x=>{
+  Helper.apiCall("", "", accessToken, user.email).then(x=>{
     version.value= x
   }).catch(e=>{
     console.log(e)
