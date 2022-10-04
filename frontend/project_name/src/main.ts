@@ -15,7 +15,8 @@ app.use(
     createAuth0({
       domain: authConfig.domain,
       client_id: authConfig.clientId,
-      redirect_uri: window.location.origin
+      redirect_uri: window.location.origin,
+      audience: authConfig.audience
     })
   );
 
