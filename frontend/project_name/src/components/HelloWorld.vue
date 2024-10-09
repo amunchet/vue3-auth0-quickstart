@@ -19,6 +19,35 @@
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
       What's next?
+
+      <hr />
+      <div>
+        <button class="btn btn-primary" @click="openMyModal">
+          Open Custom Modal
+        </button>
+
+        <Modal
+          id="myModal"
+          title="Custom Modal Title"
+          size="modal-lg"
+          ref="myModalRef"
+        >
+          <template #body>
+            <p>This is some custom content for the modal body.</p>
+            <p>You can put any HTML or components here.</p>
+          </template>
+
+          <template #footer>
+            <button class="btn btn-secondary" @click="closeMyModal">
+              Cancel
+            </button>
+            <button @click="closeMyModal" class="btn btn-primary">
+              OK
+            </button>
+          </template>
+        </Modal>
+      </div>
+      
     </h3>
   </div>
 </template>
@@ -29,6 +58,8 @@ import axios from "axios";
 import {ref, onMounted} from "vue"
 
 import Helper from "@/helper"
+  
+import Modal from "./Modal.vue";
 
 const {
   loginWithRedirect,
@@ -52,6 +83,16 @@ onMounted(async () => {
     console.log(e)
   })
 });
+
+const myModalRef = ref(null);
+
+const openMyModal = () => {
+  myModalRef.value.openModal();
+};
+
+const closeMyModal = () => {
+  myModalRef.value.closeModal();
+};
 </script>
 
 <style scoped>
