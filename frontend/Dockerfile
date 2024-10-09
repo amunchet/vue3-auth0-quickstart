@@ -7,9 +7,9 @@ RUN apt update && \
         curl
 
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+# RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
-RUN apt install nodejs
+RUN apt install -y nodejs npm
 
 RUN npm install -g npm@latest
 
@@ -25,4 +25,4 @@ RUN chmod a+x /entrypoint-fixed.sh
 RUN mkdir /src || true
 
 
-CMD exec /bin/bash -c '/entrypoint-fixed.sh && sleep inf'
+CMD exec /bin/bash -c '/entrypoint-fixed.sh'
