@@ -12,6 +12,7 @@
   "dependencies": {
     "@auth0/auth0-vue": "^1.0.2",
     "axios": "^0.27.2",
+    "bootstrap" : "^5.3.3",
     "vue": "^3.2.38",
     "vue-router": "^4.1.5"
   },
