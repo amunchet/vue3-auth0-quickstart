@@ -7,6 +7,10 @@ import './assets/main.css'
 import authConfig from './auth_config.json'
 import { createAuth0 } from '@auth0/auth0-vue';
 
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+
 const app = createApp(App)
 
 app.use(router)
